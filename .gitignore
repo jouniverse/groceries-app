@@ -1,0 +1,9 @@
+notes/
+*.zip
+.DS_Store
+.cursorrules
+.vscode/
+.env
+server/.env
+server/node_modules
+shoppinglists.json

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Add Grocery Item - Groceries</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+    </style>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="imgs/favicon/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="imgs/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="imgs/favicon/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="imgs/favicon/apple-touch-icon.png"
+    />
+    <meta name="apple-mobile-web-app-title" content="MyWebSite" />
+    <link rel="manifest" href="imgs/favicon/site.webmanifest" />
+    <!-- Styles -->
+    <link href="css/styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="view-all-shopping-lists.html"
+          >Groceries</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="view-all-shopping-lists.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="add-shopping-list.html"
+                >Add Shopping List</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Add Grocery Item</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" onclick="logout()">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-5">
+      <h1 class="mb-4">Add Grocery Item</h1>
+
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <form>
+                <div class="mb-4">
+                  <label class="form-label">Select Shopping List</label>
+                  <div class="dropdown">
+                    <button
+                      class="btn btn-outline-primary w-100 dropdown-toggle"
+                      type="button"
+                      id="shoppingListDropDownButton"
+                      data-bs-toggle="dropdown"
+                    >
+                      Select a Shopping List
+                    </button>
+                    <ul
+                      class="dropdown-menu w-100"
+                      id="shoppingListDropDownMenu"
+                    ></ul>
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <label class="form-label">Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="nameTextBox"
+                    placeholder="Enter item name"
+                  />
+                </div>
+
+                <div class="mb-4">
+                  <label class="form-label">Price</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="priceTextBox"
+                    placeholder="Enter price"
+                    step="0.01"
+                  />
+                </div>
+
+                <div class="mb-4">
+                  <label class="form-label">Quantity</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="quantityTextBox"
+                    placeholder="Enter quantity"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  id="saveGroceryItem"
+                  class="btn btn-primary w-100"
+                >
+                  Save Item
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/add-grocery-item.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        if (!localStorage.getItem("token")) {
+          window.location.href = "login.html";
+        }
+        updateNavigation();
+      });
+    </script>
+  </body>
+</html>
